@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../src/index.css';
+import { signInWithGoogle } from '../firebase';
 class SignIn extends Component {
   render() {
     return (
@@ -10,14 +11,18 @@ class SignIn extends Component {
               <img
                 className="c1"
                 src="https://img.icons8.com/bubbles/100/000000/google-logo.png"
+                alt="pic"
               />
               <img
                 className="c2"
                 src="https://img.icons8.com/bubbles/50/000000/google-logo.png"
+                alt="pic"
               />
             </div>
-            <div className="col-10 signinstyle text-light my-auto p-4  mx-auto">
-              Sign In / Sign Up with Google
+            <div className="col-10 signinstyle my-auto p-4  mx-auto">
+              <button onClick={signInWithGoogle}>
+                Sign In / Sign Up with Google
+              </button>
             </div>
           </div>
         </div>

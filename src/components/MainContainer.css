@@ -41,6 +41,11 @@
 .contents-container-name {
   font-weight: bolder;
 }
+.contents-container-time {
+  color: grey;
+  padding-top: 4px;
+  font-size: 11px;
+}
 
 .message-container {
   padding: 5px;
