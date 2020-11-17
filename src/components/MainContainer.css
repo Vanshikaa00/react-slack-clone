@@ -1,0 +1,119 @@
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+}
+.contt1 {
+  padding: 18px 0 18px 9px;
+  font-size: 30px;
+}
+.contt2 {
+  padding-bottom: 15px;
+}
+
+.chat-container {
+  padding: 8px 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.imagee-container {
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+}
+.imagee-container > img {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+.contents-container {
+  display: grid;
+  grid-template-rows: auto auto;
+}
+.contents-container-1 {
+  display: flex;
+  gap: 9px;
+  flex-direction: row;
+}
+.contents-container-name {
+  font-weight: bolder;
+}
+
+.message-container {
+  padding: 5px;
+}
+footer {
+  background-color: white;
+  line-height: 35px;
+  padding: 15px 0;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  display: block;
+  z-index: 1;
+}
+.btn {
+  display: inline-block;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #916d93;
+  color: #490d4c;
+  box-shadow: 0px 0px 8px 8px #490d4c inset;
+}
+
+.btn--primary {
+  background: #490d4c;
+  color: #fff;
+  box-shadow: 0 0 10px 2px rgba(165, 92, 92, 0.3);
+  border-radius: 4px;
+  padding: 12px 36px;
+}
+
+.btn--inside {
+  align-items: center;
+  justify-content: center;
+  margin-left: -120px;
+}
+.form__field {
+  width: 73%;
+  background: #fff;
+  color: #a3a3a3;
+  box-shadow: 11px 8px 15px 3px rgba(0, 0, 0, 0.3);
+  border: 0;
+  outline: 0;
+  padding: 22px 18px;
+}
+@media only screen and (max-width: 768px) {
+  .contt1 {
+    font-size: 25px;
+    padding: 18px;
+    text-align: center;
+  }
+  .message-container {
+    font-size: 12px;
+  }
+  .form__field {
+    width: 90%;
+  }
+}
+@media only screen and (min-width: 1024px) and (max-width: 1366px) {
+  .main-container {
+    margin-left: 30px;
+  }
+  footer {
+    margin-left: 60px;
+  }
+  .form__field {
+    width: 65%;
+  }
+}
