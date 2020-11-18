@@ -19,6 +19,7 @@
   left: 0;
   background: #490d4c;
 }
+
 .sidebar-container {
   color: #916d93;
   padding: 30px;
@@ -39,6 +40,9 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+}
+.pt {
+  cursor: pointer;
 }
 .image-container {
   width: 55px;
@@ -67,20 +71,26 @@
 .channel-container-h1 {
   color: white;
   font-size: larger;
+  gap: 10px;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
-.channel-container-h2 > ul {
+.centerit {
+  display: grid;
+
+  justify-content: center;
+  align-items: center;
+}
+.channel-container-h2 ul {
   list-style: none;
   display: grid;
-  gap: 0.4rem;
   margin: 0;
   padding: 0;
 }
-.channel-container-h2 > ul > li {
-  padding: 3px;
-}
-.channel-container-h2 > ul > li:hover {
+
+.channel-container-h2 ul li:hover {
   color: white;
   background-color: #916d93;
   border-radius: 3px;
@@ -162,6 +172,8 @@
 .menu__item:hover {
   background-color: #cfd8dc;
 }
+
+/*media query starts*/
 @media only screen and (max-width: 768px) {
   .sidebar {
     display: none;
@@ -169,7 +181,14 @@
   .minisidebar {
     display: block;
   }
+  .channel-container-h2 ul {
+    gap: 0.4rem;
+  }
+  .channel-container-h2 ul li {
+    padding: 3px;
+  }
 }
 @media only screen and (min-width: 1024px) and (max-width: 1366px) {
 }
 /*sidebar css ends*/
+/*media query ebds*/

@@ -1,17 +1,81 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import './MainContainer.css';
-class MainContainer extends Component {
-  render() {
-    return (
-      <div>
-        <div className="main-container">
-          <div className="contt1">
-            <div># SLACK CLONE</div>
-            <div>
-              <hr />
-            </div>
+import { auth, firestore } from '../firebase';
+import timeSpanFormat from 'time-span-format';
+import moment from 'moment';
+
+function MainContainer(props) {
+  const { channel } = props;
+  const [messages, setMessages] = useState([]);
+  const [userMessage, setUserMessage] = useState('');
+  const [time, setTime] = useState();
+  console.log('Main container channel', channel);
+
+  function fetchMessages() {
+    if (!channel.id) return;
+    firestore
+      .collection('messages')
+      .where('channel', '==', channel.id)
+      .orderBy('created_at', 'asc')
+      .get()
+      .then((snapshot) => {
+        const messages = snapshot.docs.map((doc) => {
+          return { id: doc.id, ...doc.data() };
+        });
+        console.log('messages are: ', messages);
+        setMessages(messages);
+      });
+  }
+
+  useEffect(() => {
+    fetchMessages();
+  }, [channel]);
+
+  function handleUserMessage(e) {
+    setUserMessage(e.target.value);
+  }
+
+  const handleTime = (seconds) => {
+    var gmtDateTime = moment.utc(
+      moment.duration(seconds, 'seconds').asMilliseconds()
+    );
+    var local = gmtDateTime.local().format('h:mm A');
+    return local;
+  };
+
+  function onClickPress(e) {
+    if (channel.id && userMessage) {
+      const data = {
+        from: {
+          id: auth.currentUser.uid,
+          name: auth.currentUser.displayName,
+        },
+        text: userMessage,
+        channel: channel.id,
+        created_at: new Date(),
+      };
+      firestore
+        .collection('messages')
+        .add(data)
+        .then(() => {
+          setUserMessage('');
+          fetchMessages();
+        });
+    }
+  }
+
+  return (
+    <div>
+      <div className="main-container">
+        <div className="contt1">
+          <div># {channel.name}</div>
+          <div className="contt1-des"> {channel.description}</div>
+          <div>
+            <hr />
           </div>
-          <div className="contt2">
+        </div>
+        <div className="contt2">
+          {messages.map((message) => (
             <div className="chat-container">
               <div className="imagee-container">
                 <img
@@ -21,38 +85,46 @@ class MainContainer extends Component {
               </div>
               <div className="contents-container">
                 <div className="contents-container-1">
-                  <div className="contents-container-name">Jessica Jones</div>
-                  <div className="contents-container-time">04:53 PM</div>
+                  <div className="contents-container-name">
+                    {message.from.name}
+                  </div>
+                  <div className="contents-container-time">
+                    {handleTime(message.created_at.seconds)}
+                  </div>
                 </div>
-                <div className="message-container">
-                  Second value is omitted, the first value is assigned to both
-                  properties.second value is omitted, the first value is
-                  assigned to both properties.second value is omitted, the first
-                  value is assigned to both properties.second value is omitted,
-                  the first value is assigned to both properties.
-                </div>
+                <div className="message-container">{message.text}</div>
               </div>
             </div>
-          </div>
+          ))}
+
+          {messages.length === 0 && (
+            <div style={{ textAlign: 'center', marginTop: 175 }}>
+              No messages here!
+            </div>
+          )}
         </div>
-        {/* footer here */}
-        <footer>
-          <form>
-            <input
-              type="email"
-              class="form__field"
-              placeholder="Enter message..."
-            />
-            <button
-              type="button"
-              class="btn btn--primary btn--inside uppercase"
-            >
-              <span class="material-icons">send</span>
-            </button>
-          </form>
-        </footer>
       </div>
-    );
-  }
+      {/* footer here */}
+      <footer>
+        <form>
+          <input
+            type="email"
+            className="form__field"
+            placeholder="Enter message..."
+            value={userMessage}
+            onChange={handleUserMessage}
+          />
+          <button
+            type="button"
+            onClick={onClickPress}
+            className="btn btn--primary btn--inside uppercase"
+          >
+            <span className="material-icons">send</span>
+          </button>
+        </form>
+      </footer>
+    </div>
+  );
 }
+
 export default MainContainer;

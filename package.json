@@ -15,13 +15,15 @@
     "aphrodite": "^2.4.0",
     "bootstrap": "^4.5.2",
     "firebase": "^8.0.2",
+    "moment": "^2.29.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
     "react-dom": "^16.13.1",
     "react-pro-sidebar": "^0.4.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "simple-flexbox": "^2.3.2"
+    "simple-flexbox": "^2.3.2",
+    "time-span-format": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
