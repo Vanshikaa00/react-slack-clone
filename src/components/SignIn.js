@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import '../../src/index.css';
-import { signInWithGoogle, signOut } from '../firebase';
+import { signInWithGoogle } from '../firebase';
 import { UserContext } from '../components/providers/UserProvider';
 import { Redirect } from 'react-router-dom';
 function SignIn(props) {

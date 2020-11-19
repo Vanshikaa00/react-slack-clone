@@ -1,5 +1,5 @@
-import { SignIn, Slack } from './';
-import React, { Component, useContext } from 'react';
+import { SignIn, Slack, NewChannel } from './';
+import React, { useContext } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
@@ -31,7 +31,7 @@ const PrivateRoute = ({ component: Component, isLoggedIn, ...others }) => {
 function App() {
   const auth = useContext(UserContext);
   console.log('authhhh', auth);
-  const loggedin = auth.user ? true : false;
+  // const loggedin = auth.user ? true : false;
 
   if (auth.loading) {
     return <h1>Loading.....</h1>;
@@ -47,6 +47,7 @@ function App() {
         />
         <Route exact path="/login" component={SignIn} />
         <Route exact path="/signup" component={SignIn} />
+        <Route exact path="/newChannel" component={NewChannel} />
       </Switch>
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Sidebar, MainContainer } from './';
 import { auth, firestore } from '../firebase';
-import './slack.css';
+import './cssFiles/slack.css';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
