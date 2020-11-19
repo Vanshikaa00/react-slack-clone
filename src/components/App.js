@@ -57,11 +57,7 @@ function App() {
         />
         <Route exact path="/login" component={SignIn} />
         <Route exact path="/signup" component={SignIn} />
-<<<<<<< HEAD
-        <Route exact path="/addChannel" component={AddChannel} />
-=======
         <Route exact path="/newChannel" component={NewChannel} />
->>>>>>> temp3
       </Switch>
     </div>
   );
