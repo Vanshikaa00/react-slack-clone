@@ -1,4 +1,4 @@
-import { SignIn, Slack } from './';
+import { SignIn, Slack, AddChannel } from './';
 import React, { Component, useContext } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -34,7 +34,17 @@ function App() {
   const loggedin = auth.user ? true : false;
 
   if (auth.loading) {
-    return <h1>Loading.....</h1>;
+    return (
+      <div className="loadingcont">
+        <div class="spinner">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+        </div>
+      </div>
+    );
   }
   return (
     <div>
@@ -47,6 +57,7 @@ function App() {
         />
         <Route exact path="/login" component={SignIn} />
         <Route exact path="/signup" component={SignIn} />
+        <Route exact path="/addChannel" component={AddChannel} />
       </Switch>
     </div>
   );

@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Redirect } from 'react';
 import { firestore, signOut } from '../firebase';
 import './slack.css';
 import { auth } from '../firebase';
 import { Link } from 'react-router-dom';
+
 class Sidebar extends Component {
   render() {
     const { channels, currentUserName, userPhoto } = this.props;
@@ -38,7 +39,9 @@ class Sidebar extends Component {
                   <div className="channel-container-h1">
                     <div>CHANNELS</div>
                     <div className="centerit">
-                      <span className="material-icons">add_box</span>
+                      <Link to="/addChannel" style={{ color: 'white' }}>
+                        <span className="material-icons">add_box</span>
+                      </Link>
                     </div>
                   </div>
                   <div className="channel-container-h2">
@@ -82,7 +85,9 @@ class Sidebar extends Component {
               <div className="channel-container-h1">
                 <div>CHANNELS</div>
                 <div className="centerit">
-                  <span className="material-icons">add_box</span>
+                  <Link to="/addChannel" style={{ color: 'white' }}>
+                    <span className="material-icons">add_box</span>
+                  </Link>
                 </div>
               </div>
               <div className="channel-container-h2">

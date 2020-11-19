@@ -22,7 +22,9 @@
     "react-pro-sidebar": "^0.4.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "react-skylight": "^0.5.1",
     "simple-flexbox": "^2.3.2",
+    "spinkit": "^2.0.1",
     "time-span-format": "^1.0.1"
   },
   "scripts": {

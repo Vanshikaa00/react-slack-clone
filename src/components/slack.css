@@ -1,18 +1,5 @@
-/* .container {
-  background: pink;
-  display: grid;
-  margin: 0;
-  grid-template-columns: 300px 700px;
-  grid-template-rows: repeat(1, auto);
-}
-.item1 {
-  grid-column: 1 / span 1;
-  background-color: aqua;
-}
-.item2 {
-  grid-column: 2/-1;
-} */
 /*sidebar css starts*/
+
 .sidebar {
   display: block;
   width: auto;
@@ -121,8 +108,8 @@
   position: fixed;
   top: 20px;
   left: 20px;
-  width: 26px;
-  height: 26px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
   z-index: 3;
 }
@@ -131,7 +118,7 @@
 .menu__btn > span::after {
   display: block;
   position: absolute;
-  width: 100%;
+  width: 65%;
   height: 2px;
   background-color: black;
   transition-duration: 0.25s;
