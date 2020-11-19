@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { signOut } from '../firebase';
 import './cssFiles/slack.css';
-
 import { Link } from 'react-router-dom';
 
 class Sidebar extends Component {
@@ -39,7 +38,11 @@ class Sidebar extends Component {
                   <div className="channel-container-h1">
                     <div>CHANNELS</div>
                     <div className="centerit">
-                      <Link to="/newChannel" style={{ color: 'white' }}>
+                      <Link
+                        to="/newChannel"
+                        incomingdata={this.props}
+                        style={{ color: 'white' }}
+                      >
                         <span className="material-icons">add_box</span>
                       </Link>
                     </div>
