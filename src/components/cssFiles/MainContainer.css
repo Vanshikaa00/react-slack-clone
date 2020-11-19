@@ -1,7 +1,7 @@
 .main-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto 1fr 1fr;
 }
 .contt1 {
   padding: 18px 0 18px 9px;
@@ -11,7 +11,7 @@
   font-size: 15px;
 }
 .contt2 {
-  padding-bottom: 15px;
+  margin-bottom: 0px;
 }
 
 .chat-container {
@@ -51,12 +51,12 @@
 }
 
 .message-container {
-  padding: 5px;
+  padding-bottom: 1px;
 }
 footer {
   background-color: white;
-  line-height: 35px;
-  padding: 15px 0;
+  line-height: 20px;
+  padding: 0;
   bottom: 0;
   position: fixed;
   width: 100%;
@@ -70,7 +70,7 @@ footer {
   outline: 0;
   align-items: center;
   justify-content: center;
-
+  margin-bottom: 4px;
   cursor: pointer;
 }
 .btn:hover {
@@ -83,14 +83,14 @@ footer {
   background: #490d4c;
   color: #fff;
   box-shadow: 0 0 10px 2px rgba(165, 92, 92, 0.3);
-  border-radius: 4px;
-  padding: 12px 36px;
+  border-radius: 6px;
+  padding: 8px 27px;
 }
 
 .btn--inside {
   align-items: center;
   justify-content: center;
-  margin-left: -120px;
+  margin-left: -100px;
 }
 .form__field {
   width: 60%;
@@ -99,10 +99,11 @@ footer {
   box-shadow: 11px 8px 15px 3px rgba(0, 0, 0, 0.3);
   border: 0;
   outline: 0;
-  padding: 22px 18px;
+  padding: 18px 18px;
 }
 @media only screen and (max-width: 768px) {
   .contt1 {
+    margin-top: 30px;
     font-size: 25px;
     padding: 18px;
     text-align: center;
@@ -113,13 +114,19 @@ footer {
   .form__field {
     width: 90%;
   }
+  .btn--inside {
+    margin-left: -85px;
+  }
 }
 @media only screen and (min-width: 1024px) and (max-width: 1366px) {
   .main-container {
-    margin-left: 30px;
+    margin-left: 50px;
   }
   footer {
     margin-left: 60px;
+  }
+  .btn--inside {
+    margin-left: -85px;
   }
   .form__field {
     width: 65%;

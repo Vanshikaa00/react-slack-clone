@@ -1,14 +1,13 @@
-import React, { Component, useState, useEffect } from 'react';
-import './MainContainer.css';
+import React, { useState, useEffect } from 'react';
+import './cssFiles/MainContainer.css';
 import { auth, firestore } from '../firebase';
-import timeSpanFormat from 'time-span-format';
 import moment from 'moment';
 
 function MainContainer(props) {
   const { channel } = props;
   const [messages, setMessages] = useState([]);
   const [userMessage, setUserMessage] = useState('');
-  const [time, setTime] = useState();
+
   console.log('Main container channel', channel);
 
   function fetchMessages() {
@@ -75,11 +74,11 @@ function MainContainer(props) {
           </div>
         </div>
         <div className="contt2">
-          {messages.map((message) => (
-            <div className="chat-container">
+          {messages.map((message, index) => (
+            <div className="chat-container" key={index}>
               <div className="imagee-container">
                 <img
-                  alt="profile image"
+                  alt="activeuserimg"
                   src="https://images.unsplash.com/photo-1533777168198-c2a016551f63?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
                 />
               </div>
@@ -105,24 +104,26 @@ function MainContainer(props) {
         </div>
       </div>
       {/* footer here */}
-      <footer>
-        <form>
-          <input
-            type="email"
-            className="form__field"
-            placeholder="Enter message..."
-            value={userMessage}
-            onChange={handleUserMessage}
-          />
-          <button
-            type="button"
-            onClick={onClickPress}
-            className="btn btn--primary btn--inside uppercase"
-          >
-            <span className="material-icons">send</span>
-          </button>
-        </form>
-      </footer>
+      <div>
+        <footer>
+          <form>
+            <input
+              type="email"
+              className="form__field"
+              placeholder="Enter message..."
+              value={userMessage}
+              onChange={handleUserMessage}
+            />
+            <button
+              type="button"
+              onClick={onClickPress}
+              className="btn btn--primary btn--inside uppercase"
+            >
+              <span className="material-icons">send</span>
+            </button>
+          </form>
+        </footer>
+      </div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
-import React, { Component, Redirect } from 'react';
-import { firestore, signOut } from '../firebase';
-import './slack.css';
-import { auth } from '../firebase';
+import React, { Component } from 'react';
+import { signOut } from '../firebase';
+import './cssFiles/slack.css';
+
 import { Link } from 'react-router-dom';
 
 class Sidebar extends Component {
@@ -23,7 +23,7 @@ class Sidebar extends Component {
               <div className="sidebar-container">
                 <div className="profile-container">
                   <div className="image-container">
-                    <img src={userPhoto} alt="profile picture" />
+                    <img src={userPhoto} alt="userimg" />
                   </div>
                   <div className="content-container">
                     <div className="content-h1">Slack Clone</div>
@@ -39,7 +39,7 @@ class Sidebar extends Component {
                   <div className="channel-container-h1">
                     <div>CHANNELS</div>
                     <div className="centerit">
-                      <Link to="/addChannel" style={{ color: 'white' }}>
+                      <Link to="/newChannel" style={{ color: 'white' }}>
                         <span className="material-icons">add_box</span>
                       </Link>
                     </div>
@@ -69,7 +69,7 @@ class Sidebar extends Component {
           <div className="sidebar-container">
             <div className="profile-container">
               <div className="image-container">
-                <img src={userPhoto} alt="profile picture" />
+                <img src={userPhoto} alt="activeuserimg" />
               </div>
               <div className="content-container">
                 <div className="content-h1">Slack Clone</div>
@@ -85,7 +85,7 @@ class Sidebar extends Component {
               <div className="channel-container-h1">
                 <div>CHANNELS</div>
                 <div className="centerit">
-                  <Link to="/addChannel" style={{ color: 'white' }}>
+                  <Link to="/newChannel" style={{ color: 'white' }}>
                     <span className="material-icons">add_box</span>
                   </Link>
                 </div>
